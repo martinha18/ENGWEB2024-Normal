@@ -1,0 +1,14 @@
+1.
+db.contratos.countDocuments()
+
+2.
+db.contratos.find({procedimento:"Ajuste Direto Regime Geral"}).count()
+
+3.
+db.contratos.distinct("entidade").sort()
+
+4.
+db.contratos.aggregate([{ $group: {_id: "$procedimento",total_contratos: { $sum: 1 }}}])
+
+5.
+db.contratos.aggregate([{ $group: {_id: "$entidade",montante_global: { $sum: "$preco"}}}])
